@@ -8,8 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class BrandService {
   apiUrl ='http://localhost:8080/api/brands';
+  
   constructor(private httpClient:HttpClient) {}
-  getBrands():Observable<Brand[]>{
-   return this.httpClient.get<Brand[]>(this.apiUrl);
+  getAllBrands():Observable<Brand[]>{
+    let newPath=this.apiUrl+"/getAll";
+   return this.httpClient.get<Brand[]>(newPath);
   }
 }

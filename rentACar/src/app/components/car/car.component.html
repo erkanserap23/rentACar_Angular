@@ -1,0 +1,20 @@
+<div *ngIf="dataLoaded == false">
+    <div class="loadingBar">
+    <span class="bar-1"></span>
+    <span class="bar-2"></span>
+    <span class="bar-3"></span>
+    <span class="bar-4"></span>
+    <span class="bar-5"></span>
+    </div>
+   
+  
+  
+  </div>
+  
+  <ul>
+      <li *ngFor="let car of cars">
+          {{car.plate}}
+     
+      </li>
+  </ul>
+  

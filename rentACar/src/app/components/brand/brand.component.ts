@@ -8,22 +8,46 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand.component.css'],
 })
 export class BrandComponent implements OnInit {
-  dataLoaded:boolean=false;
   brands: Brand[] = [];
+  currentBrand:Brand;
+
+  //  *TODO: tsconfig.json -- "strictPropertyInitialization": false added.
 
   constructor(private brandService: BrandService) {}
   ngOnInit(): void {
-    setTimeout(() => {
-      this.getAllBrands();
-  },1000);   
-  // **!biraz bekletelim :)
-   
+   this.getBrands();
+
+  }
+  getBrands() {
+    this.brandService.getAllBrands().subscribe((response) => {
+      this.brands = response;
+    });
+
   }
 
-  getAllBrands() {
-    this.brandService.getBrands().subscribe((response) => {
-      this.brands = response;
-      this.dataLoaded=true;
-    });
+  setCurrentBrand(brand:Brand|null){
+    this.currentBrand =brand;
+ }
+
+  getCurrentBrandClass(brand:Brand){
+    if(brand==this.currentBrand){
+      return "bg-danger"
+    }else{
+      return "bg-warning"
+    }
+
   }
+  
+ getAllCurrentBrandClass(){
+    if(!this.currentBrand){
+      return "bg-danger"
+    }else{
+      return "bg-warning"
+    }
+
+  }
+
+
+
+
 }
