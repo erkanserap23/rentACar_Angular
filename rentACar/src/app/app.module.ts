@@ -7,13 +7,15 @@ import { BrandComponent } from './components/brand/brand.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarComponent } from './components/car/car.component';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BrandComponent,
     NaviComponent,
-    CarComponent
+    CarComponent,
+    VatAddedPipe
   ],
   imports: [
     BrowserModule,
