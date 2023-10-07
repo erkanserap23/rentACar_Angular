@@ -5,5 +5,6 @@ export interface Car {
     modelYear: number;
     state: number;
     modelId: number;
+    modelName:String;
     imgUrl:string;
 }

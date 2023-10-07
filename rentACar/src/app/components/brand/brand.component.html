@@ -1,21 +1,24 @@
 
-<ul class="brand"> 
-    <li  [class]="getAllCurrentBrandClass()" (click)="setCurrentBrand(null)"  routerLink="/cars">Cars
-    </li>
+<div class="brandDiv">
+    <ul class="brand"> 
+        <li  [class]="getAllCurrentBrandClass()" (click)="setCurrentBrand(null)"  routerLink="/cars">Cars
+        </li>
+    
+        <li 
+        *ngFor="let brand of brands" 
+        (click)="setCurrentBrand(brand)"
+        routerLink="/cars/brandId/{{brand.id}}"
+        [class]="getCurrentBrandClass(brand)"
+        >
+         {{brand.name}}
+        </li>
+    </ul>
+</div>
 
-    <li 
-    *ngFor="let brand of brands" 
-    (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brandId/{{brand.id}}"
-    [class]="getCurrentBrandClass(brand)"
-    >
-     {{brand.name}}
-    </li>
-</ul>
 
-<h5 *ngIf="currentBrand">
+<!-- <h5 *ngIf="currentBrand">
     {{currentBrand.name}}
-</h5>
+</h5> -->
 
 
 

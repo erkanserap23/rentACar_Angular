@@ -31,18 +31,18 @@ export class BrandComponent implements OnInit {
 
   getCurrentBrandClass(brand:Brand){
     if(brand==this.currentBrand){
-      return "bg-danger"
+      return "brandActive"
     }else{
-      return "bg-warning"
+      return ""
     }
 
   }
   
  getAllCurrentBrandClass(){
     if(!this.currentBrand){
-      return "bg-danger"
+      return "brandActive"
     }else{
-      return "bg-warning"
+      return ""
     }
 
   }

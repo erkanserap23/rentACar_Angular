@@ -1,20 +1,47 @@
-<div *ngIf="dataLoaded == false">
-    <div class="loadingBar">
+<div *ngIf="dataLoaded == false" class="d-flex justify-content-center">
+  <div class="loadingBar">
     <span class="bar-1"></span>
     <span class="bar-2"></span>
     <span class="bar-3"></span>
     <span class="bar-4"></span>
     <span class="bar-5"></span>
-    </div>
-   
-  
-  
   </div>
-  
-  <ul>
-      <li *ngFor="let car of cars">
-          {{car.plate}}
+
+</div>
+
+
+<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 p-5 m-5 car">
+
+
+  <div class="col mt-5 mb-5 d-flex justify-content-center " *ngFor="let car of cars">
+
+    <div class="carDiv d-flex flex-column align-items-center">
+    <div class="p-4">
+      <img [src]=car.imgUrl class="carImg" alt="">
+    </div>
+      
+      <h5 class="carTitle">{{car.modelName}} </h5>
+      <div class="over">
+        <i class="fa-solid fa-basket-shopping fa-xl ps-4 pt-5" style="color: #fcfcff;"></i>
+
+        <div class="carDetail">
+        <h4>plate :{{car.plate}}</h4>
+        <h4>dailyPrice:{{car.dailyPrice}} ₺</h4>
+        <h4>modelYear:{{car.modelYear}}</h4>
+        <h4>modelName:{{car.modelName}}</h4> 
+        </div>
      
-      </li>
-  </ul>
-  
+      
+      <button class="addBtn">Reservation >> </button>
+      </div>
+
+   
+
+
+    </div>
+
+
+
+  </div>
+
+</div>

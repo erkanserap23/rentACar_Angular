@@ -9,7 +9,7 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit{
-  dataLoaded:boolean=true;
+  dataLoaded:boolean=false;
   cars: Car[] = [];
   constructor(private carService:CarService , private activatedRoute:ActivatedRoute){}
 
@@ -17,12 +17,14 @@ export class CarComponent implements OnInit{
  
     this.activatedRoute.params.subscribe(params=>{
       if(params["brandId"]){
-          this.getCarByBarand(params["brandId"]);
-          console.log(params["brandId"]);
+       setTimeout(() => {
+        this.getCarByBarand(params["brandId"]);
+        },1000); 
       }
       else{
-        this.getCar();
-      
+        setTimeout(() => {
+          this.getCar();
+          },2000); 
       }
  
   })
@@ -47,6 +49,3 @@ getCarByBarand(brandId:number){
 }
 
 
-// setTimeout(() => {
-//   this.getCar()
-// }, 1000); 
