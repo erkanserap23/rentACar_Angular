@@ -8,6 +8,10 @@ import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarComponent } from './components/car/car.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -15,14 +19,26 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     BrandComponent,
     NaviComponent,
     CarComponent,
-    VatAddedPipe
+    VatAddedPipe,
+    FilterPipePipe,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut:4000,
+      progressBar:true,
+      closeButton:false,
+      progressAnimation:"decreasing",
+      preventDuplicates:true,
+      positionClass:"toast-bottom-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
