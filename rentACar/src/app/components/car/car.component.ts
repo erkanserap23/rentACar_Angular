@@ -11,6 +11,9 @@ import { CarService } from 'src/app/services/car.service';
 export class CarComponent implements OnInit{
   dataLoaded:boolean=false;
   cars: Car[] = [];
+  filterText:string="";
+  filteredCount = { count: 0 };
+  
   constructor(private carService:CarService , private activatedRoute:ActivatedRoute){}
 
   ngOnInit(): void {
@@ -43,6 +46,11 @@ getCarByBarand(brandId:number){
     this.cars=response;
     this.dataLoaded=true;
   })
+}
+
+addToCar(car:Car){
+  
+
 }
 
 
