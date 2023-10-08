@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BrandService {
-  apiUrl ='http://localhost:8080/api/brands';
+  private apiUrl ='http://localhost:8080/api/brands';
   
   constructor(private httpClient:HttpClient) {}
   getAllBrands():Observable<Brand[]>{

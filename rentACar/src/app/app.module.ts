@@ -35,6 +35,7 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    
     ToastrModule.forRoot({
       timeOut:4000,
       progressBar:true,
