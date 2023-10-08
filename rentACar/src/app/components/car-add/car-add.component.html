@@ -4,7 +4,7 @@
 
     <div class=" col-sm-12  col-md-5 col-lg-8 formDiv p-5">
         <h1 class="mb-5 text-center">Araba kayıt sayfası </h1>
-        <div class=" d-flex justify-content-center mt-5 mb-5  " >
+        <div class=" d-flex justify-content-center mt-5   " >
 
             <img [src]=imgUrl>
           
@@ -18,7 +18,7 @@
                         <option value="">Choose...</option>
                         <option [value]="model.id" *ngFor="let model of models">{{model.brandName}}**{{model.name}}</option>
                     </select>
-                    <div *ngIf="carAddForm.get('modelId').invalid && carAddForm.get('modelId').touched" class="invalid-feedback">
+                    <div *ngIf="carAddForm.get('modelId').invalid && carAddForm.get('modelId').touched" class="mt-2 alert alert-danger">
                         Please select a valid model.
                     </div>
                 </div>  
@@ -26,8 +26,8 @@
                 <div class="col-sm-4 mt-5">
                     <label for="plate" class="form-label">Plaka No</label>
                     <input type="text" class="form-control custom-form-input" id="plate" formControlName="plate">
-                     <div *ngIf="carAddForm.get('plate').invalid && carAddForm.get('plate').touched" class="invalid-feedback">
-                        Valid plate number is required.
+                     <div *ngIf="carAddForm.get('plate').invalid && carAddForm.get('plate').touched" class="mt-2 alert alert-danger">
+                        Please select a valid  plate number .
                     </div> 
                 </div>
         
@@ -36,16 +36,16 @@
                 <div class="col-sm-4 mt-5">
                     <label for="dailyPrice" class="form-label">Günlük fiyat</label>
                     <input type="number" class="form-control custom-form-input" id="dailyPrice" formControlName="dailyPrice">
-                    <div *ngIf="carAddForm.get('dailyPrice').invalid && carAddForm.get('dailyPrice').touched" class="invalid-feedback">
-                        Valid daily price is required.
+                    <div *ngIf="carAddForm.get('dailyPrice').invalid && carAddForm.get('dailyPrice').touched" class="mt-2 alert alert-danger">
+                       Please select a valid  daily price.
                     </div>
                 </div>
         
                 <div class="col-sm-4 mt-5">
                     <label for="modelYear" class="form-label">Model yıl</label>
                     <input type="number" class="form-control custom-form-input" id="modelYear" formControlName="modelYear">
-                    <div *ngIf="carAddForm.get('modelYear').invalid && carAddForm.get('modelYear').touched" class="invalid-feedback">
-                        Valid model year is required.
+                    <div *ngIf="carAddForm.get('modelYear').invalid && carAddForm.get('modelYear').touched" class="mt-2 alert alert-danger">
+                        Please select a valid  model year.
                     </div>
                 </div>
 
@@ -70,8 +70,8 @@
                 <div class="col-sm-9 mt-5 mb-5">
                     <label for="imgUrl" class="form-label">Img Url</label>
                     <input type="text" class="form-control custom-form-input" id="imgUrl" formControlName="imgUrl" [(ngModel)]="imgUrl">
-                    <div *ngIf="carAddForm.get('imgUrl').invalid && carAddForm.get('imgUrl').touched" class="invalid-feedback">
-                        Valid image URL is required.
+                    <div *ngIf="carAddForm.get('imgUrl').dirty && carAddForm.get('imgUrl').touched" class="mt-2 alert alert-danger">
+                        Please select a valid imgUrl.
                     </div>
                 </div>
             </div>
