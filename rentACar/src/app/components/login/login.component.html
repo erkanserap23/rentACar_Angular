@@ -1,0 +1,94 @@
+<div 
+  class="row d-flex align-items-start justify-content-center g-5 p-5 loginDiv"
+>
+  <!-- !Individual Customer Login -->
+  <div *ngIf="!choose" class="indFormLoginDiv col-sm-12 col-lg-10 p-5">
+    <div class="chooseBtn">
+      <p (click)="changeBtn()">Corporate Customer Login</p>
+  
+    </div>
+
+
+    <h1 class="mt-5 text-center">Individual Customer Login</h1>
+    <div class="d-flex justify-content-center"></div>
+    <form class="p-5" [formGroup]="individualLoginForm">
+      <div class="row g-3 p-5">
+        <div class="col-sm-12">
+          <label for="nationalId" class="form-label"
+            ><i class="fa-solid fa-user fa-xl my-5 me-3"></i>National
+            number</label
+          >
+          <input
+            type="text"
+            class="form-control custom-form-input"
+            id="nationalId"
+            formControlName="nationalId"
+          />
+          <!-- hata -->
+                   
+        </div>
+        <div class="col-sm-12 mt-5">
+          <label for="password" class="form-label"
+            ><i class="fa-solid fa-key fa-md"></i> Password</label
+          >
+          <input
+            type="text"
+            class="form-control custom-form-input"
+            id="password"
+            formControlName="password"
+          />
+           <!-- hata -->
+        </div>
+      </div>
+      <div class="btnCarAddDiv d-flex justify-content-center ms-5">
+        <button class="w-50 indBtn" (click)="indlogin()">Login</button>
+      </div>
+    </form>
+  </div>
+  <!-- !Corporate Customer Login -->
+
+  <div *ngIf="choose" class="corFormLoginDiv col-sm-12 col-lg-10 p-5  ">
+    <div class="chooseBtn theme">
+      <p  (click)="changeBtn()" >Individual Customer Login</p>
+    </div>
+
+    <h1 class=" text-center mt-5 ">Corporate Customer Login</h1>
+    <div class="d-flex justify-content-center"></div>
+    <form class="p-5" [formGroup]="corporateLoginForm">
+      <div class="row g-3 p-5">
+        <div class="col-sm-12">
+          <label for="taxNumber" class="form-label">
+            <i class="fa-solid fa-building-circle-arrow-right fa-xl my-5 me-3"></i>
+         
+           Tax number</label
+          >
+
+          <input
+            type="text"
+            class="form-control custom-form-input"
+            id="taxNumber"
+            formControlName="taxNumber"
+          />
+       <!-- hata -->
+        </div>
+        <div class="col-sm-12 mt-5">
+          <label for="password" class="form-label"
+            ><i class="fa-solid fa-key fa-md"></i> Password</label
+          >
+          <input
+            type="text"
+            class="form-control custom-form-input"
+            id="password"
+            formControlName="password"
+          />
+         <!-- hata -->
+        </div>
+      </div>
+      <div class="btnCarAddDiv d-flex justify-content-center ms-5">
+        <button class="w-50 corBtn"  (click)="corlogin()">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+nationalId password taxNumber;

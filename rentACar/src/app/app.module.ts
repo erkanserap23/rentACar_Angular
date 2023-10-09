@@ -15,6 +15,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     FilterPipePipe,
     CartSummaryComponent,
     CarAddComponent,
+    LoginComponent,
    
   ],
   imports: [
