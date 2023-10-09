@@ -19,7 +19,7 @@ export class BrandComponent implements OnInit {
 
   }
   getBrands() {
-    this.brandService.getAllBrands().subscribe((response) => {
+    this.brandService.getBrands().subscribe((response) => {
       this.brands = response;
     });
 
