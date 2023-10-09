@@ -10,6 +10,7 @@ import { CartService } from './services/cart.service';
 import { ModelService } from './services/model.service';
 import { BrandService } from './services/brand.service';
 import { RouterModule } from '@angular/router';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     VatAddedPipe,
     NaviComponent,
     FooterComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    MainLayoutComponent
 
   ],
   imports: [

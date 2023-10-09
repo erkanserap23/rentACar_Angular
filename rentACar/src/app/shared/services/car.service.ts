@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Car } from '../models/car';
 import { Observable } from 'rxjs';
+import { CarServiceData } from '../models/car-service-data';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CarService {
+export class CarService  {
    private apiUrl = 'http://localhost:3000/';
 
   constructor(private httpClient: HttpClient) {}

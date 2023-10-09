@@ -17,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
     
@@ -24,7 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrandComponent,
     CarAddComponent,
     CarComponent,
-    LoginComponent
+    LoginComponent,
+
   
   ],
   imports: [
