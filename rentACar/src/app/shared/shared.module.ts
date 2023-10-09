@@ -9,6 +9,7 @@ import { CarService } from './services/car.service';
 import { CartService } from './services/cart.service';
 import { ModelService } from './services/model.service';
 import { BrandService } from './services/brand.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,6 +24,7 @@ import { BrandService } from './services/brand.service';
   ],
   imports: [
   CommonModule,
+  RouterModule
   ],
   exports:[
     FilterPipePipe,
