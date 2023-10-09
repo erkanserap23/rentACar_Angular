@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
-import { CarService } from 'src/app/services/car.service';
-import { CartService } from 'src/app/services/cart.service';
+import { Car } from 'src/app/shared/models/car';
+import { CarService } from 'src/app/shared/services/car.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-car',

@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CarService {
-   private apiUrl = 'http://localhost:8080/api/';
+   private apiUrl = 'http://localhost:3000/';
 
   constructor(private httpClient: HttpClient) {}
 
   getAllCars(): Observable<Car[]> {
-    let newPath = this.apiUrl + 'cars/getAll';
+    let newPath = this.apiUrl + 'cars/';
     return this.httpClient.get<Car[]>(newPath);
   }
 

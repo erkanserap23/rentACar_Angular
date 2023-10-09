@@ -1,34 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrandComponent } from './components/brand/brand.component';
-import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CarComponent } from './components/car/car.component';
-import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-
 import { ToastrModule } from 'ngx-toastr';
-import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
-import { LoginComponent } from './components/login/login.component';
+import { BrandComponent } from './pages/brand/brand.component';
+import { CarAddComponent } from './pages/car-add/car-add.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CarComponent } from './pages/car/car.component';
+import { SharedModule } from './shared/shared.module';
+import { CarService } from './shared/services/car.service';
+import { BrandService } from './shared/services/brand.service';
+import { CartService } from './shared/services/cart.service';
+import { ModelService } from './shared/services/model.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    
+   AppComponent,
     BrandComponent,
-    NaviComponent,
-    CarComponent,
-    VatAddedPipe,
-    FilterPipePipe,
-    CartSummaryComponent,
     CarAddComponent,
-    LoginComponent,
-   
+    CarComponent,
+    LoginComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -36,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     
     ToastrModule.forRoot({

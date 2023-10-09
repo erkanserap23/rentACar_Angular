@@ -8,12 +8,12 @@ import { Model } from '../models/model';
 })
 export class ModelService {
 
-  private apiUrl ='http://localhost:8080/api/';
+  private apiUrl ='http://localhost:3000';
 
   constructor(private httpClient:HttpClient) { }
 
   getAllModel():Observable<Model[]>{
-    let newPath=this.apiUrl+"models/getAll";
+    let newPath=this.apiUrl+"/models";
     return this.httpClient.get<Model[]>(newPath);
   }
 }
