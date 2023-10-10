@@ -24,13 +24,13 @@ export class CarAddComponent implements OnInit{
     
     ){}
   ngOnInit(): void {
-    this.getAllModel();
+    this.getModelByBrandId();
     this.createCarAddForm();
 
   }
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({
-        plate: ["", Validators.required,Validators.minLength(6)],
+        plate: ["", Validators.required],
         dailyPrice: ["", Validators.required],
         modelYear: ["", Validators.compose([Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())])],
         state: ["", Validators.required],
@@ -40,12 +40,12 @@ export class CarAddComponent implements OnInit{
 
  }
 
- getAllModel(){
-  this.modelService.getAllModel().subscribe(response=>{
-  this.models=response;
-  console.log(this.models);
-})
- }
+//  getAllModel(){
+//   this.modelService.getAllModel().subscribe(response=>{
+//   this.models=response;
+//   console.log(this.models);
+// })
+//  }
 
 
  addToCar(){
@@ -62,10 +62,16 @@ export class CarAddComponent implements OnInit{
   else{
    this.toastrService.error(   "Kayıt Alınamadı" ,"Formunuz eksik");
   }
- 
- 
- 
   }
+
+
+  getModelByBrandId(){
+    this.modelService.getModelByBrand().subscribe(res=>{
+      this.models=res;
+      console.log("res",res);
+    })
+  }
+
 
 
 }

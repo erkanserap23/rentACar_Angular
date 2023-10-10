@@ -15,6 +15,7 @@ import { CarComponent } from './pages/car/car.component';
 import { SharedModule } from './shared/shared.module';
 
 import { ToastrModule } from 'ngx-toastr';
+import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 
 
 
@@ -26,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     CarAddComponent,
     CarComponent,
     LoginComponent,
+    CarDetailComponent,
 
   
   ],

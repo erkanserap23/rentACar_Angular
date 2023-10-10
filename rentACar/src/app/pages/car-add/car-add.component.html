@@ -12,36 +12,28 @@
         <form [formGroup]="carAddForm" class="p-5" >
             <div class="row g-3 ">
         
-               <div class="col-md-12 mb-5">
+               <div class="col-sm-4 mt-5 mb-5">
                     <label for="modelId" class="form-label">Model</label>
                     <select class="form-select custom-form-input " id="modelId" formControlName="modelId">
                         <option value="">Choose...</option>
-                        <option [value]="model.id" *ngFor="let model of models">{{model.brandName}}**{{model.name}}</option>
+                        <option [value]="model.id" *ngFor="let model of models">{{model.brand.name}}--{{model.modelName}}</option>
                     </select>
                     <div *ngIf="carAddForm.get('modelId').invalid && carAddForm.get('modelId').touched" class="mt-2 alert alert-danger">
                         Please select a valid model.
                     </div>
                 </div>  
-        
-                <div class="col-sm-4 mt-5">
+
+
+                <div class="col-sm-4 mt-5 mb-5">
                     <label for="plate" class="form-label">Plaka No</label>
                     <input type="text" class="form-control custom-form-input" id="plate" formControlName="plate">
                      <div *ngIf="carAddForm.get('plate').invalid && carAddForm.get('plate').touched" class="mt-2 alert alert-danger">
                         Please select a valid  plate number .
                     </div> 
                 </div>
-        
-         
-        
-                <div class="col-sm-4 mt-5">
-                    <label for="dailyPrice" class="form-label">Günlük fiyat</label>
-                    <input type="number" class="form-control custom-form-input" id="dailyPrice" formControlName="dailyPrice">
-                    <div *ngIf="carAddForm.get('dailyPrice').invalid && carAddForm.get('dailyPrice').touched" class="mt-2 alert alert-danger">
-                       Please select a valid  daily price.
-                    </div>
-                </div>
-        
-                <div class="col-sm-4 mt-5">
+
+
+                <div class="col-sm-4 mt-5 mb-5">
                     <label for="modelYear" class="form-label">Model yıl</label>
                     <input type="number" class="form-control custom-form-input" id="modelYear" formControlName="modelYear">
                     <div *ngIf="carAddForm.get('modelYear').invalid && carAddForm.get('modelYear').touched" class="mt-2 alert alert-danger">
@@ -49,7 +41,11 @@
                     </div>
                 </div>
 
-                <div class="col-sm-3 mt-5 mb-3">
+
+            
+        
+              
+         <div class="col-sm-2 mt-5 mb-5">
                     <h4 class="mb-3">Durum</h4>
                     <div class="my-3">
                         <div class="form-check">
@@ -66,17 +62,26 @@
                         </div>
                     </div>
                 </div> 
+         
         
-                <div class="col-sm-9 mt-5 mb-5">
+                <div class="col-sm-4 mt-5 mb-5">
+                    <label for="dailyPrice" class="form-label">Günlük fiyat</label>
+                    <input type="number" class="form-control custom-form-input" id="dailyPrice" formControlName="dailyPrice">
+                    <div *ngIf="carAddForm.get('dailyPrice').invalid && carAddForm.get('dailyPrice').touched" class="mt-2 alert alert-danger">
+                       Please select a valid  daily price.
+                    </div>
+                </div>
+                <div class="col-sm-6 mt-5 mb-5">
                     <label for="imgUrl" class="form-label">Img Url</label>
                     <input type="text" class="form-control custom-form-input" id="imgUrl" formControlName="imgUrl" [(ngModel)]="imgUrl">
                     <div *ngIf="carAddForm.get('imgUrl').dirty && carAddForm.get('imgUrl').touched" class="mt-2 alert alert-danger">
                         Please select a valid imgUrl.
                     </div>
                 </div>
+               
             </div>
         <div class="btnCarAddDiv">
-            <button class="w-75 carAddBtn" (click)="addToCar()" >Araba Ekle</button>
+            <button class="w-50 carAddBtn" (click)="addToCar()" >Araba Ekle</button>
         </div>
              
         </form>

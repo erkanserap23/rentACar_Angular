@@ -1,0 +1,51 @@
+
+
+<div class="row d-flex align-items-start justify-content-center g-5 p-5  ">
+
+    <div class=" col-sm-12  col-lg-10 formDiv p-5">
+        <h1 class="mb-5 text-center">Araba Detay </h1>
+        <div class=" d-flex justify-content-center mt-5   " >
+
+            <table class="table table-hover" >
+                <thead>
+                  <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-1">Images</th>
+                    <!-- <th scope="col">Brand Name</th> -->
+                    <th class="col-3">ModelName</th>
+                    <th class="col-2">Plate</th>
+                    <th class="col-2">Model Year</th>
+                    <th class="col-1">State</th>
+                    <th class="col-2"></th>
+
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let car of cars">
+                    <th scope="row">{{car.id}}</th>
+                    <td class="imageDiv"><img  [src]=car.imgUrl ></td>
+                    <!-- <td>BrandName</td> -->
+                    <td>{{car.model.modelName}}</td>
+                    <td>{{car.plate}}</td>
+                    <td>{{car.modelYear}}</td>
+                    <td [ngClass]="{ 'state1': car.state === 1, 
+                    'state2': car.state === 2, 
+                    'state3': car.state !== 1 && car.state !== 2}">{{car.state}}</td>
+                    <td>
+                     
+                    
+
+                        <button class=" d-block mb-3 mx-auto detailBtn" type="button">Delete</button>
+                        <button class=" d-block mb-3 mx-auto detailBtn"  type="button">Update</button>
+                  
+
+                    </td>
+                  </tr>
+               
+                </tbody>
+              </table>
+      
+        </div>
+    
+    </div>
+</div>

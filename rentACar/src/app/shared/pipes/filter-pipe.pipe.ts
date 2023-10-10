@@ -11,7 +11,7 @@ export class FilterPipePipe implements PipeTransform {
     filterText = filterText ? filterText.toLocaleLowerCase() : "";
 
     const filteredCars = filterText ? 
-      value.filter((c: Car) => c.modelName.toLocaleLowerCase().indexOf(filterText) !== -1) : 
+      value.filter((c: Car) => c.model.modelName.toLocaleLowerCase().indexOf(filterText) !== -1) : 
       value;
 
     // Filtrelenmiş araç sayısını set ediyoruz.

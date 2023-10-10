@@ -1,7 +1,10 @@
+import { Brand } from "./brand"
+
 export interface Model {
     
-    id: number;
-    name: string,
-    brandName:string
+    id: number,
+    modelName: string,
+    brandId:number
+    brand:Brand
 
 }

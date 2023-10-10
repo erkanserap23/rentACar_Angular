@@ -8,7 +8,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CarService } from './services/car.service';
 import { CartService } from './services/cart.service';
 import { ModelService } from './services/model.service';
-import { BrandService } from './services/brand.service';
+import { BrandService } from './services/mock-service/concretes/brand.service';
 import { RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 

@@ -1,3 +1,5 @@
+import { Model } from "./model";
+
 export interface Car {
     id:number;
     plate: string;
@@ -5,6 +7,7 @@ export interface Car {
     modelYear: number;
     state: number;
     modelId: number;
-    modelName:string;
     imgUrl:string;
+    model:Model;
+
 }

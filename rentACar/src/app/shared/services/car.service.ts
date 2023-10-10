@@ -13,18 +13,19 @@ export class CarService  {
   constructor(private httpClient: HttpClient) {}
 
   getAllCars(): Observable<Car[]> {
-    let newPath = this.apiUrl + 'cars/';
-    return this.httpClient.get<Car[]>(newPath);
+    return this.httpClient.get<Car[]>(
+      this.apiUrl + 'cars/?_expand=model&_expand=brand/'
+    );
   }
 
-  getCarByBrand(brandId: number): Observable<Car[]> {
-    let newPath = this.apiUrl + 'cars/brandId/' + brandId;
-    return this.httpClient.get<Car[]>(newPath);
+  getCarByBrand(): Observable<Car[]> {
+    let url =(this.apiUrl+'cars/?_expand=model&_expand=brand/');
+    return this.httpClient.get<Car[]>(url);
   }
 
-  addCar(car: Car):Observable<void> {
-    let newPath = this.apiUrl + 'cars/add';
-    return this.httpClient.post<void>(newPath, car);
+  addCar(car: Car){
+    let newPath = this.apiUrl +'cars/add';
+    return this.httpClient.post(newPath, car);
   }
 
   // todo: http://localhost:8080/api/cars/brandId/1

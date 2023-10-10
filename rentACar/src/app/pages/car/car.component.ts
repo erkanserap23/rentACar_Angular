@@ -28,6 +28,7 @@ export class CarComponent implements OnInit {
       if (params['brandId']) {
         setTimeout(() => {
           this.getCarByBarand(params['brandId']);
+          console.log("paramaetre"+params['brandId'])
         }, 1000);
       } else {
         setTimeout(() => {
@@ -39,25 +40,28 @@ export class CarComponent implements OnInit {
 
   getCar() {
     this.carService.getAllCars().subscribe((response) => {
-      this.cars = response;
+      this.cars =response;
+      console.log(response);
       this.dataLoaded = true;
     });
   }
 
   getCarByBarand(brandId: number) {
-    this.carService.getCarByBrand(brandId).subscribe((response) => {
-      this.cars = response;
+    this.carService.getCarByBrand().subscribe((response) => {
+
+   this.cars=response.filter(f=>f.model.brandId==brandId);
+    
       this.dataLoaded = true;
+      console.log("deger",response);
     });
   }
-
   addToCar(car: Car) {
     if(car.state==3){
     this.toastrService.error("Araba Bakımda");
     }
     else{
       this.cartService.addToCart(car);
-      this.toastrService.success("Sepete Eklendi : " +car.modelName);
+      this.toastrService.success("Sepete Eklendi : " +car.model.modelName);
     }
   }
 }

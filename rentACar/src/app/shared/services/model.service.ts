@@ -16,4 +16,14 @@ export class ModelService {
     let newPath=this.apiUrl+"/models";
     return this.httpClient.get<Model[]>(newPath);
   }
+
+  getModelByBrand(): Observable<Model[]> {
+    let url ='http://localhost:3000/models?_expand=brand';
+    return this.httpClient.get<Model[]>(url);
+  }
+
+
+
 }
+
+
