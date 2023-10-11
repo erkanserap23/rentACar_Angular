@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Brand } from '../../../models/brand';
 import { Observable } from 'rxjs';
-import { BrandServiceData } from '../../../models/brand-service-data';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService implements BrandServiceData {
+export class BrandService {
   private apiUrl ='http://localhost:3000';
   
   constructor(private httpClient:HttpClient) {}

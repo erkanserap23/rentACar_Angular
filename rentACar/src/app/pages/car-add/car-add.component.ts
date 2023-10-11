@@ -40,27 +40,19 @@ export class CarAddComponent implements OnInit{
 
  }
 
-//  getAllModel(){
-//   this.modelService.getAllModel().subscribe(response=>{
-//   this.models=response;
-//   console.log(this.models);
-// })
-//  }
-
-
  addToCar(){
   if(this.carAddForm.valid)
   {
-    let carModel= Object.assign({},this.carAddForm.value);
+  let carModel= Object.assign({},this.carAddForm.value);
   this.carService.addCar(carModel).subscribe(response=>{
    this.toastrService.success("Arabanız Kayıt Edildi");
   },responseError=>{
     this.toastrService.error(responseError.error.message);
   })
- 
+
   }
   else{
-   this.toastrService.error(   "Kayıt Alınamadı" ,"Formunuz eksik");
+   this.toastrService.error("Kayıt Alınamadı","Formunuz eksik");
   }
   }
 
@@ -72,6 +64,9 @@ export class CarAddComponent implements OnInit{
     })
   }
 
+  
+
+
 
 
 }
@@ -79,3 +74,9 @@ export class CarAddComponent implements OnInit{
 
 //  *!  -- sor !!  Object.assign({},tüm alanları ekler ) burada 
 // *!  Validators.minLength(10)
+//  getAllModel(){
+//   this.modelService.getAllModel().subscribe(response=>{
+//   this.models=response;
+//   console.log(this.models);
+// })
+//  }

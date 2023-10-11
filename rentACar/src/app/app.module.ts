@@ -19,6 +19,7 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 
 
 
+
 @NgModule({
   declarations: [
     
@@ -28,6 +29,7 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
     CarComponent,
     LoginComponent,
     CarDetailComponent,
+
 
   
   ],

@@ -2,11 +2,16 @@
 
 <div class="row d-flex align-items-start justify-content-center g-5 p-5  ">
 
-    <div class=" col-sm-12  col-lg-10 formDiv p-5">
-        <h1 class="mb-5 text-center">Araba Detay </h1>
+
+
+    <div class=" col-sm-12  col-lg-10 formDiv p-5 ">
+      <div>
+        <button class="detailBtnNew " routerLink="add" >New A Car</button>
+      </div>
+        <h1 class="mb-5 text-center mt-5">Car Detail </h1>
         <div class=" d-flex justify-content-center mt-5   " >
 
-            <table class="table table-hover" >
+            <table class="table table-hover mt-5" >
                 <thead>
                   <tr>
                     <th class="col-1">#</th>
@@ -35,17 +40,117 @@
                      
                     
 
-                        <button class=" d-block mb-3 mx-auto detailBtn" type="button">Delete</button>
-                        <button class=" d-block mb-3 mx-auto detailBtn"  type="button">Update</button>
-                  
+                        <button class=" d-block mb-3 mx-auto detailBtn " type="button" (click)="deleteCar(car.id)">Delete</button>
+                        <button class=" d-block mb-3 mx-auto detailBtn "  type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                         (click)="getById(car.id,car)">Update</button>
+      
 
                     </td>
                   </tr>
                
                 </tbody>
               </table>
-      
         </div>
     
     </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade  formDiv" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Car update ...</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row d-flex align-items-start justify-content-center g-5  ">
+
+          <div class=" col-sm-12  ">
+
+          <div class="px"><img [src]=imgUrl></div>
+         
+              <form [formGroup]="carForm" class="p-5" >
+                  <div class="row g-3 ">
+              
+                     <div class="col-sm-12  ">
+                          <label for="modelId" class="form-label">Model</label>
+                          <select class="form-select custom-form-input " id="modelId" formControlName="modelId">
+                              <option value="">Choose...</option>
+                              <option [value]="model.id" *ngFor="let model of models">{{model.brand.name}}--{{model.modelName}}</option>
+                          </select>
+                          
+                      </div>  
+      
+      
+                      <div class="col-sm-12 mt-5 ">
+                          <label for="plate" class="form-label">Plaka No</label>
+                          <input type="text" class="form-control custom-form-input" id="plate" formControlName="plate">
+                          
+                      </div>
+      
+      
+                      <div class="col-sm-12 mt-5 ">
+                          <label for="modelYear" class="form-label">Model yıl</label>
+                          <input type="number" class="form-control custom-form-input" id="modelYear" formControlName="modelYear">
+                        
+                      </div>
+      
+      
+                  
+        
+                    
+               <div class="col-sm-12 mt-5 ">
+                          <h4 class="mb-3">Durum</h4>
+                          <div class="my-3">
+                              <div class="form-check">
+                                  <input id="available" formControlName="state" type="radio" class="form-check-input" value="1">
+                                  <label class="form-check-label" for="available">Mevcut</label>
+                              </div>
+                              <div class="form-check">
+                                  <input id="rented" formControlName="state" type="radio" class="form-check-input" value="2">
+                                  <label class="form-check-label" for="rented">Kiralık</label>
+                              </div>
+                              <div class="form-check">
+                                  <input id="maintence" formControlName="state" type="radio" class="form-check-input" value="3">
+                                  <label class="form-check-label" for="maintence">Bakımda</label>
+                              </div>
+                          </div>
+                      </div> 
+               
+              
+                      <div class="col-sm-12 ">
+                          <label for="dailyPrice" class="form-label">Günlük fiyat</label>
+                          <input type="number" class="form-control custom-form-input" id="dailyPrice" formControlName="dailyPrice">
+                         
+                      </div>
+                      <div class="col-sm-12  ">
+                          <label for="imgUrl" class="form-label">Img Url</label>
+                          <input type="text" class="form-control custom-form-input" id="imgUrl" formControlName="imgUrl" [(ngModel)]="imgUrl">
+                     
+                      </div>
+                     
+                  </div>
+             
+                   
+              </form>
+              
+          </div>
+      </div>
+
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="detailBtnClose" data-bs-dismiss="modal" (click)="updateCar()">Close</button>
+        <button type="button" class=" detailBtn">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

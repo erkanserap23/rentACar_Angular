@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Car } from '../models/car';
 import { Observable } from 'rxjs';
-import { CarServiceData } from '../models/car-service-data';
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +23,21 @@ export class CarService  {
     return this.httpClient.get<Car[]>(url);
   }
 
-  addCar(car: Car){
-    let newPath = this.apiUrl +'cars/add';
-    return this.httpClient.post(newPath, car);
+  addCar(car: Car):Observable<Car>{
+    let newPath = this.apiUrl +'cars';
+    return this.httpClient.post<Car>(newPath,car);
   }
+
+  updateCar(id:number,car:Car): Observable<Car> {
+    let newPath = this.apiUrl +'cars/';
+    return this.httpClient.put<Car>(newPath+id,car);
+  }
+
+  deleteCar(id:number): Observable<Car>{
+    let newPath = this.apiUrl +'cars/';
+    return this.httpClient.delete<Car>(newPath + id);
+  }
+
 
   // todo: http://localhost:8080/api/cars/brandId/1
   // **! let newPath=this.apiUrl+"cars/brandId?"+brandId; //? neden?

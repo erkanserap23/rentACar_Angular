@@ -11,7 +11,7 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 const routes: Routes = [
   { path:"",pathMatch:"full", component:CarComponent},
   {path:"cars",component:CarComponent},
-  {path:"cars/add", pathMatch:"full", component:CarAddComponent},
+  {path:"cars/detail/add", pathMatch:"full", component:CarAddComponent},
   {path:"cars/detail", pathMatch:"full", component:CarDetailComponent},
   {path:"cars/:brandId",component:CarComponent},
   {path:"login",component:LoginComponent},
