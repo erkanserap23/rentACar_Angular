@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/features/vehicle/models/car';
-import { Model } from 'src/app/shared/models/model';
-import { CarService } from 'src/app/features/vehicle/services/car.service';
+import { Car } from 'src/app/features/vehicle/models/car-dto';
+
 import { ModelService } from 'src/app/shared/services/model.service';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
+import { CarsAbstractService } from '../../services/abstracts/cars-abstract-service';
+import { Model } from 'src/app/shared/models/model-dto';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CarDetailComponent implements OnInit {
   models:Model[];
 
 
-  constructor(private carService:CarService,
+  constructor(private carService:CarsAbstractService,
     private modelService:ModelService,
     private toastrService:ToastrService,
     private formBuilder:FormBuilder,
@@ -28,13 +29,14 @@ export class CarDetailComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.getAllCarByBrand();
-    this.getAllModelByBrand();
+    // this.getAllCarByBrand();
+    // this.getAllModelByBrand();
     this.UpdateCarForm();
 
   }
   getAllCarByBrand(){
-    this.carService.getCarByBrand().subscribe(res=>{
+    //hatalı 
+    this.carService.getList().subscribe(res=>{
       this.cars=res;
       console.log(res,"fdfdfd")
     

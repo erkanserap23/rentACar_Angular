@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Model } from 'src/app/shared/models/model';
-import { CarService } from 'src/app/features/vehicle/services/car.service';
 import { ModelService } from 'src/app/shared/services/model.service';
+import { CarsAbstractService } from '../../services/abstracts/cars-abstract-service';
+import { Model } from 'src/app/shared/models/model-dto';
 
 @Component({
   selector: 'app-car-add',
@@ -19,7 +19,7 @@ export class CarAddComponent implements OnInit{
   constructor(
     private formBuilder:FormBuilder,
     private modelService:ModelService,
-    private carService:CarService,
+    private carService:CarsAbstractService,
     private toastrService:ToastrService
     
     ){}

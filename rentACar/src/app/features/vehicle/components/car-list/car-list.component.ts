@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CarService } from '../../services/car.service';
+import { CarsService } from '../../services/concretes/cars.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/services/cart.service';
-import { Car } from 'src/app/features/vehicle/models/car';
+import { Car } from 'src/app/features/vehicle/models/car-dto';
+import { CarsAbstractService } from '../../services/abstracts/cars-abstract-service';
 
 @Component({
   selector: 'app-car-list',
@@ -17,7 +18,7 @@ export class CarListComponent implements OnInit {
   filteredCount = { count: 0 };
 
   constructor(
-    private carService: CarService,
+    private carService:CarsAbstractService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
     private cartService:CartService
@@ -39,7 +40,7 @@ export class CarListComponent implements OnInit {
   }
 
   getCar() {
-    this.carService.getAllCars().subscribe((response) => {
+    this.carService.getList().subscribe((response) => {
       this.cars =response;
       console.log(response);
       this.dataLoaded = true;
@@ -47,8 +48,7 @@ export class CarListComponent implements OnInit {
   }
 
   getCarByBarand(brandId: number) {
-    this.carService.getCarByBrand().subscribe((response) => {
-
+    this.carService.getCarsByBrand(brandId).subscribe((response) => {
    this.cars=response.filter(f=>f.model.brandId==brandId);
     
       this.dataLoaded = true;
