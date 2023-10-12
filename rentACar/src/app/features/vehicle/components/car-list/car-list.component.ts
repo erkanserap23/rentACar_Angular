@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CarsService } from '../../services/concretes/cars.service';
+import { Component, OnInit,  ChangeDetectionStrategy,ChangeDetectorRef, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/services/cart.service';
@@ -9,7 +8,8 @@ import { CarsAbstractService } from '../../services/abstracts/cars-abstract-serv
 @Component({
   selector: 'app-car-list',
   templateUrl: './car-list.component.html',
-  styleUrls: ['./car-list.component.css']
+  styleUrls: ['./car-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarListComponent implements OnInit {
   dataLoaded: boolean = false;
@@ -21,7 +21,8 @@ export class CarListComponent implements OnInit {
     private carService:CarsAbstractService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
-    private cartService:CartService
+    private cartService:CartService,
+    private changeDetector: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +45,9 @@ export class CarListComponent implements OnInit {
       this.cars =response;
       console.log(response);
       this.dataLoaded = true;
+      this.changeDetector.detectChanges();
     });
+  
   }
 
   getCarByBarand(brandId: number) {
@@ -53,6 +56,7 @@ export class CarListComponent implements OnInit {
     
       this.dataLoaded = true;
       console.log("deger",response);
+      this.changeDetector.detectChanges();
     });
   }
   addToCar(car: Car) {
@@ -65,3 +69,7 @@ export class CarListComponent implements OnInit {
     }
   }
 }
+
+
+// !this.changeDetector.detectChanges(); 
+// ?OnPush ile çalıştığımız için değişiklikleri bildirmemiz gerekiyor.
