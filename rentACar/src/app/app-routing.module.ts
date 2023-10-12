@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarComponent } from './pages/car/car.component';
-import { CarAddComponent } from './pages/car-add/car-add.component';
+
+import { CarAddComponent } from './features/vehicle/components/car-add/car-add.component';
 import { LoginComponent } from './pages/login/login.component';
-import { CarPageComponent } from './pages/car-page/car-page.component';
-import { CarDetailComponent } from './pages/car-detail/car-detail.component';
+import { CarPageComponent } from './features/vehicle/components/car-page/car-page.component';
+import { CarDetailComponent } from './features/vehicle/components/car-detail/car-detail.component';
+import { CarListComponent } from './features/vehicle/components/car-list/car-list.component';
 
 
 
 const routes: Routes = [
-  { path:"",pathMatch:"full", component:CarComponent},
-  {path:"cars",component:CarComponent},
+  { path:"",pathMatch:"full", component:CarListComponent},
+  {path:"cars",component:CarListComponent},
   {path:"cars/detail/add", pathMatch:"full", component:CarAddComponent},
   {path:"cars/detail", pathMatch:"full", component:CarDetailComponent},
-  {path:"cars/:brandId",component:CarComponent},
+  {path:"cars/:brandId",component:CarListComponent},
   {path:"login",component:LoginComponent},
   {path:"cars/getCars",component:CarPageComponent},
 

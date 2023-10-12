@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Car } from '../../../shared/models/car';
+import { Car } from '../models/car';
 import { Observable } from 'rxjs';
 
 

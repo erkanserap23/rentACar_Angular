@@ -3,7 +3,7 @@ import { CarService } from '../../services/car.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/services/cart.service';
-import { Car } from 'src/app/shared/models/car';
+import { Car } from 'src/app/features/vehicle/models/car';
 
 @Component({
   selector: 'app-car-list',

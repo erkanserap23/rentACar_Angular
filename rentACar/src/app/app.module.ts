@@ -3,57 +3,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-
-import { BrandComponent } from './pages/brand/brand.component';
-import { CarAddComponent } from './pages/car-add/car-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
-import { CarComponent } from './pages/car/car.component';
-
 import { SharedModule } from './shared/shared.module';
-
+import { VehicleModule } from './features/vehicle/vehicle.module';
 import { ToastrModule } from 'ngx-toastr';
-import { CarDetailComponent } from './pages/car-detail/car-detail.component';
-
-
-
+import { BrandModule } from './features/brand/brand.module';
+import { HomePagesComponent } from './pages/home-pages/home-pages.component';
 
 @NgModule({
-  declarations: [
-    
-   AppComponent,
-    BrandComponent,
-    CarAddComponent,
-    CarComponent,
-    LoginComponent,
-    CarDetailComponent,
-
-
-  
-  ],
+  declarations: [AppComponent,LoginComponent, HomePagesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SharedModule,
     ReactiveFormsModule,
-    
+
+    SharedModule,
+    VehicleModule,
+    BrandModule,
+
     ToastrModule.forRoot({
-      timeOut:4000,
-      progressBar:true,
-      closeButton:false,
-      progressAnimation:"decreasing",
-      preventDuplicates:true,
-      positionClass:"toast-bottom-right",
-    
-    })
+      timeOut: 4000,
+      progressBar: true,
+      closeButton: false,
+      progressAnimation: 'decreasing',
+      preventDuplicates: true,
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
