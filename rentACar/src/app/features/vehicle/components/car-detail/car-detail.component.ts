@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/shared/models/car';
 import { Model } from 'src/app/shared/models/model';
-import { CarService } from 'src/app/shared/services/car.service';
+import { CarService } from 'src/app/features/vehicle/services/car.service';
 import { ModelService } from 'src/app/shared/services/model.service';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 

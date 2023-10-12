@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { CarService } from '../../services/car.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/shared/models/car';
-import { CarService } from 'src/app/shared/services/car.service';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { Car } from 'src/app/shared/models/car';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css'],
+  selector: 'app-car-list',
+  templateUrl: './car-list.component.html',
+  styleUrls: ['./car-list.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarListComponent implements OnInit {
   dataLoaded: boolean = false;
   cars: Car[] = [];
   filterText: string = '';

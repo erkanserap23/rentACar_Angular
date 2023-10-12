@@ -1,0 +1,60 @@
+<div *ngIf="dataLoaded == false" class="d-flex justify-content-center">
+    <div class="loadingBar">
+      <span class="bar-1"></span>
+      <span class="bar-2"></span>
+      <span class="bar-3"></span>
+      <span class="bar-4"></span>
+      <span class="bar-5"></span>
+    </div>
+  
+  </div>
+  <div class="filterDiv">
+    <form class="w-50 me-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="filterText" name="filterText"
+        id="filterText">
+    </form>
+  
+    <div *ngIf=" filterText.length >1 && filteredCount.count == 0" class="alert alert-danger" role="alert">
+      {{filterText}}:The product you are looking for was not found!
+    </div>
+    <div *ngIf="filterText.length >1 && filteredCount.count > 0" class="alert alert-success" role="alert">
+      {{filterText}}:Searched product found !
+    </div>
+  </div>
+  
+  <div class="container px-5 ">
+  
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 mx-5 car">
+  
+      <div class="col mt-5 mb-5 d-flex justify-content-center "
+        *ngFor="let car of cars |filterPipe :filterText:filteredCount">
+  
+        <div class="carDiv d-flex flex-column align-items-center">
+          <div class="p-4">
+            <img [src]=car.imgUrl class="carImg" alt="">
+          </div>
+  
+          <h5 class="carTitle">{{car.model.modelName}} </h5>
+          <div class="over">
+            <i class="fa-solid fa-basket-shopping fa-xl ps-4 pt-5" style="color: #fcfcff;"></i>
+  
+            <div class="carDetail">
+              <h4>plate :{{car.plate}}</h4>
+              <h4>dailyPrice:{{car.dailyPrice}} ₺</h4>
+              <h4>dailyPrice KVD :{{car.dailyPrice|vatAdded:10 |currency}} </h4>
+              <h4>modelYear:{{car.modelYear}}</h4>
+              <h4>modelName:{{car.model.modelName}}</h4>
+            </div>
+            <button class="addBtn" (click)="addToCar(car) ">Reservation >> </button>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  
+  <!-- |currency -->
