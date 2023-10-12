@@ -11,6 +11,8 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { RouterModule } from '@angular/router';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { CarsAbstractService } from './services/abstracts/cars-abstract-service';
+import { CarsMockService } from './services/concretes/cars-mock.service';
 
 @NgModule({
   declarations: [
@@ -29,5 +31,12 @@ import { CarListComponent } from './components/car-list/car-list.component';
     CarPageComponent,
     CarListComponent,
   ],
+  providers:[
+    {
+    provide: CarsAbstractService,
+    useClass: CarsMockService
+    }
+   
+  ]
 })
 export class VehicleModule {}

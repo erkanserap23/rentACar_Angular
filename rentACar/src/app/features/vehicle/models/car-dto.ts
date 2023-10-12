@@ -1,6 +1,6 @@
-import { Model } from "../../../shared/models/model";
-
+import { Model } from "src/app/shared/models/model-dto";
 export interface Car {
+    
     id:number;
     plate: string;
     dailyPrice:number;
@@ -8,6 +8,6 @@ export interface Car {
     state: number;
     modelId: number;
     imgUrl:string;
-    model:Model;
+    model:Model
 
 }

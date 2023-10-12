@@ -6,10 +6,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { CarPageComponent } from './features/vehicle/components/car-page/car-page.component';
 import { CarDetailComponent } from './features/vehicle/components/car-detail/car-detail.component';
 import { CarListComponent } from './features/vehicle/components/car-list/car-list.component';
+import { HomePagesComponent } from './pages/home-pages/home-pages.component';
 
 
 
 const routes: Routes = [
+  // { path:"",pathMatch:"full", component:HomePagesComponent},
   { path:"",pathMatch:"full", component:CarListComponent},
   {path:"cars",component:CarListComponent},
   {path:"cars/detail/add", pathMatch:"full", component:CarAddComponent},
