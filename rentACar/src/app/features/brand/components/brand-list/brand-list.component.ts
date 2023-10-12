@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Brand } from 'src/app/shared/models/brand';
-import { BrandService } from 'src/app/shared/services/mock-service/concretes/brand.service';
+import { Brand } from 'src/app/features/brand/models/brand';
+import { BrandService } from 'src/app/features/brand/services/brand.service';
 
 @Component({
-  selector: 'app-brand',
-  templateUrl: './brand.component.html',
-  styleUrls: ['./brand.component.css'],
+  selector: 'app-brand-list',
+  templateUrl: './brand-list.component.html',
+  styleUrls: ['./brand-list.component.css']
 })
-export class BrandComponent implements OnInit {
+export class BrandListComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand:Brand;
 
@@ -46,8 +46,4 @@ export class BrandComponent implements OnInit {
     }
 
   }
-
-
-
-
 }
